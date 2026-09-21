@@ -1,0 +1,57 @@
+Commands.UnclassifiedCommand.Description: Lists hostile NPCs that have no family. Optional argument: a mod name.
+
+// Text shown above an enemy when your attack is strong or weak against it.
+// Also used as the row titles in the Bestiary.
+Combat: {
+	Effective: Effective
+	Resist: Resist
+	Immune: Immune
+}
+
+// Display names of attack properties (Bestiary, tooltips)
+AttackProperties: {
+	Fire: Fire
+	Frost: Frost
+	Poison: Poison
+	Holy: Holy
+	Cursed: Cursed
+}
+
+// Display names of the NPC families. One entry per value of the NPCFamily enum.
+Families: {
+	Undead: Undead
+	Demon: Demon
+	Beast: Beast
+	Insect: Insect
+	Slime: Slime
+	Plant: Plant
+	Aquatic: Aquatic
+	Construct: Construct
+	Humanoid: Humanoid
+	Spirit: Spirit
+	Hallowed: Hallowed
+}
+
+Bestiary: {
+	Family: Family
+	// Shown instead of information the player has not unlocked yet
+	Unknown: ???
+}
+
+Tooltips.AttackProperties: Attack type: {0}
+
+Configs: {
+	ClientConfig: {
+		DisplayName: Bane & Brew (Client)
+
+		ShowAffinityText: {
+			Label: Show effectiveness text
+			Tooltip: Shows "Effective", "Resist" or "Immune" above an enemy when your attack is strong or weak against it.
+		}
+
+		ShowWeaponPropertyTooltip: {
+			Label: Show attack type on weapons
+			Tooltip: Adds a line such as "Attack type: Fire" to the tooltip of weapons and ammo that have an attack type.
+		}
+	}
+}
