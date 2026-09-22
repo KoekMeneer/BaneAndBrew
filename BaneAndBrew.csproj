@@ -10,7 +10,8 @@
 
 	<!-- References -->
 	<ItemGroup>
-		
+	  <Folder Include="Common\Combat\" />
+	  <Folder Include="Content\" />
 	</ItemGroup>
 
 </Project>
