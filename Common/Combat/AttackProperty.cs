@@ -1,4 +1,5 @@
-﻿using Terraria.Localization;
+﻿using System;
+using Terraria.Localization;
 
 namespace BaneAndBrew.Common.Combat
 {
@@ -25,5 +26,20 @@ namespace BaneAndBrew.Common.Combat
         }
 
         public override string ToString() => Id;
+
+        // Equality is by Id (case-insensitive), not by reference: this is what makes it safe
+        // to use AttackProperty as a Dictionary key while still matching the "unique
+        // case-insensitive id" contract documented above, even if two different instances
+        // somehow ended up sharing an id.
+        public bool Equals(AttackProperty? other)
+            => other is not null && string.Equals(Id, other.Id, StringComparison.OrdinalIgnoreCase);
+
+        public override bool Equals(object? obj) => Equals(obj as AttackProperty);
+
+        public override int GetHashCode() => StringComparer.OrdinalIgnoreCase.GetHashCode(Id);
+
+        public static bool operator ==(AttackProperty? left, AttackProperty? right) => Equals(left, right);
+
+        public static bool operator !=(AttackProperty? left, AttackProperty? right) => !Equals(left, right);
     }
 }

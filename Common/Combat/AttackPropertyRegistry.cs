@@ -14,11 +14,43 @@ namespace BaneAndBrew.Common.Combat
         private  static readonly Dictionary<string, AttackProperty> _propertyIdMap = new(StringComparer.OrdinalIgnoreCase);
 
         // BUILT-IN PROPERTIES
+        //
+        /// <summary>
+        /// Flamethrowers, molten gear, hellfire arrows.
+        /// </summary>
         public static readonly AttackProperty Fire = Register("Fire");
+        /// <summary>
+        /// Ice weapons, frostburn ammo.
+        /// </summary>
         public static readonly AttackProperty Frost = Register("Frost");
+        /// <summary>
+        /// Thunder/tech weapons, storm staves.
+        /// </summary>
+        public static readonly AttackProperty Lightning = Register("Lightning");
+        /// <summary>
+        /// Blade of Grass?, stingers, venom (merged in).
+        /// </summary>
         public static readonly AttackProperty Poison = Register("Poison");
+        /// <summary>
+        /// Hallowed gear, holy arrows.
+        /// </summary>
         public static readonly AttackProperty Holy = Register("Holy");
+        /// <summary>
+        /// Cursed flames, shadowflame, ichor, demonite
+        /// </summary>
         public static readonly AttackProperty Cursed = Register("Cursed");
+        /// <summary>
+        /// Spears, arrows, bolts, darts
+        /// </summary>
+        public static readonly AttackProperty Piercing = Register("Piercing");
+        /// <summary>
+        /// Hammers, maces, flails
+        /// </summary>
+        public static readonly AttackProperty Blunt = Register("Blunt");
+        /// <summary>
+        /// Bombs, rockets, grenades
+        /// </summary>
+        public static readonly AttackProperty Explosive = Register("Explosive");
 
         /// <summary>
         /// Every registered property (built-in and from other mods).

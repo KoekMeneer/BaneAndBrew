@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BaneAndBrew.Common.Families
+﻿namespace BaneAndBrew.Common.Families
 {
     /// <summary>
     /// Specifies the type of the NPC.
