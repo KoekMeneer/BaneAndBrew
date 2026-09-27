@@ -21,7 +21,9 @@ namespace BaneAndBrew.Common.Combat
         public override void OnSpawn(Projectile projectile, IEntitySource source)
         {
             if (source is not EntitySource_ItemUse weaponSource)
+            {
                 return; // not fired by an item - e.g. spawned by another projectile
+            }
 
             AttackProperty[] properties = WeaponPropertyRegistry.Get(weaponSource.Item.type);
 

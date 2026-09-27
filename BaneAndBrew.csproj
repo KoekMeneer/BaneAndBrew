@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<!-- Import tModLoader mod properties -->
 	<Import Project="..\tModLoader.targets" />
@@ -10,6 +10,7 @@
 
 	<!-- References -->
 	<ItemGroup>
+	  <Folder Include="Common\Bestiary\" />
 	  <Folder Include="Content\" />
 	</ItemGroup>
 

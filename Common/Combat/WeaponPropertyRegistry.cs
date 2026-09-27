@@ -46,7 +46,9 @@ namespace BaneAndBrew.Common.Combat
         public static void SetProperties(int itemType, params AttackProperty[] properties)
         {
             if ((uint)itemType < (uint)_properties.Length)
+            {
                 _properties[itemType] = properties;
+            }
         }
 
         /// <summary>
@@ -58,7 +60,9 @@ namespace BaneAndBrew.Common.Combat
             AttackProperty[] properties = Get(source);
 
             foreach (int target in targets)
+            {
                 SetProperties(target, properties);
+            }
         }
     }
 }

@@ -13,14 +13,6 @@ namespace BaneAndBrew.Common.Combat
         {
             RegisterFire();
             RegisterFrost();
-            // A handful of examples to seed the pattern - not exhaustive yet.
-            //
-            WeaponPropertyRegistry.SetProperties(ItemID.MoltenFury, AttackPropertyRegistry.Fire);
-            WeaponPropertyRegistry.SetProperties(ItemID.FrostStaff, AttackPropertyRegistry.Frost);
-            WeaponPropertyRegistry.SetProperties(ItemID.NightsEdge, AttackPropertyRegistry.Cursed);
-
-            // TODO: same treatment as VanillaNPCFamilies - happy to pass over the full
-            // vanilla weapon list once this shape feels right to you.
         }
 
         private static void RegisterFire()
