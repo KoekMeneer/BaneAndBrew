@@ -13,6 +13,8 @@ namespace BaneAndBrew.Common.Combat
         {
             RegisterFire();
             RegisterFrost();
+
+            RegisterExplosive();
         }
 
         private static void RegisterFire()
@@ -20,6 +22,7 @@ namespace BaneAndBrew.Common.Combat
             // Ammo
             WeaponPropertyRegistry.SetProperties(ItemID.FlamingArrow, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Gel, AttackPropertyRegistry.Fire); // Used by flamethrowers, but may be debatable.
+            WeaponPropertyRegistry.SetProperties(ItemID.Flare, AttackPropertyRegistry.Fire);
 
             // Weapons
             WeaponPropertyRegistry.SetProperties(ItemID.FieryGreatsword, AttackPropertyRegistry.Fire);
@@ -29,6 +32,7 @@ namespace BaneAndBrew.Common.Combat
             WeaponPropertyRegistry.SetProperties(ItemID.FlamingMace, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Sunfury, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.DayBreak, AttackPropertyRegistry.Fire);
+            WeaponPropertyRegistry.SetProperties(ItemID.SolarEruption, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Sunfury, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.MolotovCocktail, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Flamethrower, AttackPropertyRegistry.Fire);
@@ -36,6 +40,7 @@ namespace BaneAndBrew.Common.Combat
             WeaponPropertyRegistry.SetProperties(ItemID.FlowerofFire, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Flamelash, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.InfernoFork, AttackPropertyRegistry.Fire);
+            WeaponPropertyRegistry.SetProperties(ItemID.HeatRay, AttackPropertyRegistry.Explosive);
             WeaponPropertyRegistry.SetProperties(ItemID.ImpStaff, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.FireWhip, AttackPropertyRegistry.Fire);
         }
@@ -62,6 +67,31 @@ namespace BaneAndBrew.Common.Combat
             WeaponPropertyRegistry.SetProperties(ItemID.StaffoftheFrostHydra, AttackPropertyRegistry.Frost);
             WeaponPropertyRegistry.SetProperties(ItemID.CoolWhip, AttackPropertyRegistry.Frost);
             WeaponPropertyRegistry.SetProperties(ItemID.SnowballLauncher, AttackPropertyRegistry.Frost);
+        }
+
+        public static void RegisterExplosive()
+        {
+            // Ammo
+            WeaponPropertyRegistry.SetProperties(ItemID.RocketI, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.RocketII, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.RocketIII, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.RocketIV, AttackPropertyRegistry.Explosive);
+
+            // Weapons
+            WeaponPropertyRegistry.SetProperties(ItemID.Grenade, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.StickyGrenade, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.BouncyGrenade, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.PartyGirlGrenade, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.Bomb, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.StickyBomb, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.BouncyBomb, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.ScarabBomb, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.BombFish, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.Dynamite, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.StickyDynamite, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.BouncyDynamite, AttackPropertyRegistry.Explosive);
+            WeaponPropertyRegistry.SetProperties(ItemID.DynamiteFish, AttackPropertyRegistry.Explosive);
+            // TODO: What magic and other weapons are explosive?
         }
     }
 }
