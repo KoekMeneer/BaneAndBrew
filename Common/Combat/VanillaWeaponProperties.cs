@@ -32,6 +32,7 @@ namespace BaneAndBrew.Common.Combat
             WeaponPropertyRegistry.SetProperties(ItemID.Sunfury, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.MolotovCocktail, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Flamethrower, AttackPropertyRegistry.Fire);
+            WeaponPropertyRegistry.SetProperties(ItemID.WandofSparking, AttackPropertyRegistry.Frost);
             WeaponPropertyRegistry.SetProperties(ItemID.FlowerofFire, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.Flamelash, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.InfernoFork, AttackPropertyRegistry.Fire);
@@ -43,6 +44,24 @@ namespace BaneAndBrew.Common.Combat
         {
             // Ammo
             WeaponPropertyRegistry.SetProperties(ItemID.FrostburnArrow, AttackPropertyRegistry.Frost);
+
+            // Weapons
+            WeaponPropertyRegistry.SetProperties(ItemID.IceBlade, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.Frostbrand, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.IceSickle, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.Amarok, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.NorthPole, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.IceBoomerang, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.FrostDaggerfish, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.SnowballCannon, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.WandofFrosting, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.FlowerofFrost, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.FrostStaff, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.BlizzardStaff, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.IceRod, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.StaffoftheFrostHydra, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.CoolWhip, AttackPropertyRegistry.Frost);
+            WeaponPropertyRegistry.SetProperties(ItemID.SnowballLauncher, AttackPropertyRegistry.Frost);
         }
     }
 }
