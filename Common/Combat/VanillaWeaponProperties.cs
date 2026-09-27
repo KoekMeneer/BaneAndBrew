@@ -41,7 +41,8 @@ namespace BaneAndBrew.Common.Combat
 
         public static void RegisterFrost()
         {
-
+            // Ammo
+            WeaponPropertyRegistry.SetProperties(ItemID.FrostburnArrow, AttackPropertyRegistry.Frost);
         }
     }
 }

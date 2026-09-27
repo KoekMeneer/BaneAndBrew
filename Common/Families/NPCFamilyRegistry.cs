@@ -16,6 +16,7 @@ namespace BaneAndBrew.Common.Families
             if (_initialized) return;
 
             _classifications = new NPCClassification[NPCLoader.NPCCount];
+            _initialized = true;
 
             VanillaNPCFamilies.Register();
         }
@@ -27,6 +28,14 @@ namespace BaneAndBrew.Common.Families
         /// <returns></returns>
         public static NPCClassification Get(int npcType)
         {
+            // Defensive: correctness must never depend on which ModSystem hook happens to run
+            // first. The Bestiary is populated earlier than PostAddRecipes, so without this,
+            // every lookup from SetBestiary would silently see "unclassified".
+            if (!_initialized)
+            {
+                Initialize();
+            }
+
             if (npcType < 0)
             {
                 int index = -npcType - 1; // -1 -> 0, -65 -> 64
@@ -72,7 +81,9 @@ namespace BaneAndBrew.Common.Families
         internal static void SetAlignments(NPCAlignment alignment, params int[] targets)
         {
             foreach (int target in targets)
+            {
                 SetAlignment(target, alignment);
+            }
         }
 
         internal static void Copy(int source, params int[] targets)
@@ -91,13 +102,17 @@ namespace BaneAndBrew.Common.Families
             {
                 int index = -npcType - 1;
                 if ((uint)index < (uint)_legacyClassifications.Length)
+                {
                     _legacyClassifications[index] = classification;
+                }
 
                 return;
             }
 
             if ((uint)npcType < (uint)_classifications.Length)
+            {
                 _classifications[npcType] = classification;
+            }
         }
     }
 }

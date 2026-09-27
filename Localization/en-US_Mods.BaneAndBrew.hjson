@@ -23,21 +23,31 @@ AttackProperties: {
 
 // Display names of the NPC families. One entry per value of the NPCFamily enum.
 Families: {
+	Slime: Slime
 	Undead: Undead
+	Spirit: Spirit
 	Demon: Demon
 	Beast: Beast
+	Humanoid: Humanoid
 	Insect: Insect
-	Slime: Slime
 	Plant: Plant
 	Aquatic: Aquatic
 	Construct: Construct
-	Humanoid: Humanoid
-	Spirit: Spirit
+	Eldritch: Eldritch
+}
+
+// Display names of the NPC alignments. One entry per non-None value of the NPCAlignment enum.
+Alignments: {
+	Infernal: Infernal
+	Frigid: Frigid
+	Storm: Storm
+	Corrupted: Corrupted
 	Hallowed: Hallowed
 }
 
 Bestiary: {
-	Family: Family
+	Family: Family: {0}
+	Alignment: Alignment: {0}
 	// Shown instead of information the player has not unlocked yet
 	Unknown: ???
 }

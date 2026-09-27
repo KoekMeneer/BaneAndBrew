@@ -1,3 +1,4 @@
+using BaneAndBrew.Common.Bestiary;
 using BaneAndBrew.Common.Combat;
 using Terraria.ModLoader;
 
@@ -13,6 +14,7 @@ namespace BaneAndBrew
         public override void Unload()
         {
             FamilyAffinityRegistry.Unload();
+            NPCClassificationIcons.Unload();
         }
     }
 }

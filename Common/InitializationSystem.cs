@@ -1,4 +1,5 @@
-﻿using BaneAndBrew.Common.Combat;
+﻿using BaneAndBrew.Common.Bestiary;
+using BaneAndBrew.Common.Combat;
 using BaneAndBrew.Common.Families;
 using Terraria.ModLoader;
 
@@ -10,6 +11,7 @@ namespace BaneAndBrew.Common
         {
             AttackPropertyRegistry.LoadBuiltInNames(Mod);
             EffectivenessNpc.LoadStaticDefaults(Mod);
+            NPCClassificationText.LoadStaticDefaults(Mod);
         }
 
         // Runs after all mods have registered NPCs, loot and recipes.
