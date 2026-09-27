@@ -25,6 +25,11 @@ namespace BaneAndBrew.Common.Combat
 
         private static void RegisterFire()
         {
+            // Ammo
+            WeaponPropertyRegistry.SetProperties(ItemID.FlamingArrow, AttackPropertyRegistry.Fire);
+            WeaponPropertyRegistry.SetProperties(ItemID.Gel, AttackPropertyRegistry.Fire); // Used by flamethrowers, but may be debatable.
+
+            // Weapons
             WeaponPropertyRegistry.SetProperties(ItemID.FieryGreatsword, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.DD2SquireDemonSword, AttackPropertyRegistry.Fire);
             WeaponPropertyRegistry.SetProperties(ItemID.HelFire, AttackPropertyRegistry.Fire);

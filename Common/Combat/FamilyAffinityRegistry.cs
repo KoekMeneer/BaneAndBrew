@@ -146,6 +146,39 @@ namespace BaneAndBrew.Common.Combat
             return default;
         }
 
+        /// <summary>
+        /// The affinity that decides the outcome of a whole attack (a weapon or projectile)
+        /// against this NPC type, once every property it carries has been weighed together.
+        /// </summary>
+        public static Affinity GetAffinity(int npcType, AttackProperty[] properties)
+            => ToAffinity(GetMultiplier(npcType, properties));
+
+        /// <summary>
+        /// The final damage multiplier for a whole attack that may carry several properties
+        /// at once (e.g. a flaming holy sword is both Fire and Holy). Each property's
+        /// multiplier is combined multiplicatively - just like Pokemon's actual type math -
+        /// so a Vulnerable and a Resistant property mostly cancel each other out, matching
+        /// properties stack into something stronger, and any Immune property always wins
+        /// outright, since multiplying by zero stays zero no matter what else is in the mix.
+        /// </summary>
+        public static float GetMultiplier(int npcType, AttackProperty[] properties)
+        {
+            if (properties.Length == 0)
+                return 1f;
+
+            NPCIdentity identity = NPCFamilyRegistry.GetIdentity(npcType);
+            NPCAlignment alignment = NPCFamilyRegistry.GetAlignment(npcType);
+
+            float multiplier = 1f;
+
+            foreach (AttackProperty property in properties)
+            {
+                multiplier *= GetAffinity(identity, alignment, property).ToMultiplier();
+            }
+
+            return multiplier;
+        }
+
         private static void SetTraits<TKey>(
             Dictionary<TKey, Dictionary<AttackProperty, Affinity>> table,
             TKey key,
@@ -171,6 +204,28 @@ namespace BaneAndBrew.Common.Combat
         {
             affinity = default;
             return table.TryGetValue(key, out var traits) && traits.TryGetValue(property, out affinity);
+        }
+
+        /// <summary>
+        /// Maps a combined multiplier back to a single category, mainly for the effectiveness
+        /// text. The tolerance band around 1x is what makes a Vulnerable+Resistant combo
+        /// (1.5 x 0.65 = 0.975) read as "Normal" instead of a barely-there resistance no
+        /// player would ever notice.
+        /// </summary>
+        private static Affinity ToAffinity(float multiplier)
+        {
+            const float tolerance = 0.05f;
+
+            if (multiplier <= 0f)
+                return Affinity.Immune;
+
+            if (multiplier > 1f + tolerance)
+                return Affinity.Vulnerable;
+
+            if (multiplier < 1f - tolerance)
+                return Affinity.Resistant;
+
+            return Affinity.Normal;
         }
     }
 }

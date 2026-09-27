@@ -15,6 +15,10 @@ AttackProperties: {
 	Poison: Poison
 	Holy: Holy
 	Cursed: Cursed
+	Lightning: Lightning
+	Piercing: Piercing
+	Blunt: Blunt
+	Explosive: Explosive
 }
 
 // Display names of the NPC families. One entry per value of the NPCFamily enum.
